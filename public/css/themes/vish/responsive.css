@@ -1,0 +1,87 @@
+@media (max-width: 992px) {
+    #menu .navbar-header {
+        float: none;
+        text-align: center;
+        margin: 0px;
+    }
+    .navbar-sea .navbar-brand {
+        float: none;
+        display: block;
+    }
+    .navbar-right {
+        float: left!important;
+    }
+    .pagination-wrapper .col-3, 
+    .pagination-wrapper .col-6 {
+        width: 100%;
+        float: none;
+    }
+    .dk-scaffolding .pagination-info {
+        text-align: center;
+    }
+    .dk-scaffolding .dk-entries-per-page {
+        text-align: center;
+    }
+    #menus-list .com-4 {
+        width: 50%;
+        min-height: 210px;
+    }
+}
+@media (max-width: 767px) {
+    .navbar-sea .navbar-header {
+        margin-right: 0px;
+    }
+    .navbar-sea .navbar-toggle {
+        border-color: #ffffff;
+        margin: 13px 0px;
+    }    
+    .navbar-sea .navbar-nav {
+        margin: 0px;
+        padding-top: 10px;
+    }
+    .navbar-sea .navbar-nav.navbar-right {
+        float: none!important;
+        padding-top: 0px;
+    }
+    .navbar-sea .navbar-nav>li {
+        padding: 0px;
+        margin-bottom: 10px;
+    }
+    .navbar-sea .navbar-nav>li>a {
+        margin: 0px;
+    }
+    .navbar-sea .navbar-nav .open .dropdown-menu>li>a {
+        color: #ffffff;
+        background-color: #203159;
+        margin-bottom: 4px;
+    }
+    .navbar-sea .navbar-nav .open .dropdown-menu {
+        margin-top: 4px;
+    }
+    .navbar-sea .navbar-nav .open .dropdown-menu>li>a:focus, 
+    .navbar-sea .navbar-nav .open .dropdown-menu>li>a:hover {
+        color: #ffffff;
+        background-color: #637390;
+        border-radius: 4px;
+    }
+    .pagination-wrapper .col-3, 
+    .pagination-wrapper .col-6 {
+        width: 100%;
+        float: none;
+    }
+    .dk-scaffolding .pagination-info {
+        text-align: center;
+    }
+    .dk-scaffolding .dk-entries-per-page {
+        text-align: center;
+    }
+    .dk-scaffolding .table-responsive {
+        border: none;
+    }
+    .menu {
+        min-height: 220px;
+    }
+    .dashboard-info {
+        margin-bottom: 20px;
+    }
+}

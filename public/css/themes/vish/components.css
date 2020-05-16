@@ -1,0 +1,120 @@
+.form-control {
+    border: 1px solid #eaeef1;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 12px;
+    font-weight: normal;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    box-shadow: none;
+}
+.form-control:focus {
+    border-color: #eaeef1;
+    box-shadow: none;
+}
+textarea.form-control {
+	height: auto;
+}
+.dk-table-row-search .form-control {
+    padding: 0px 12px;
+    height: 44px;
+    line-height: 44px;
+    border: none;
+    box-shadow: none;
+}
+.checkbox input[type=file] {
+    display: inline-block;
+}
+input[type=submit] {
+    margin-right: 8px;
+}
+/* Start Buttons */
+/* Start Buttons */
+.btn-danger {
+    background-color: #ffffff;
+    border-color: #ff5a4e;
+    color: #ff5a4e;
+}
+.btn-danger.focus, 
+.btn-danger:focus, 
+.btn-danger:hover, 
+.btn-danger:active, 
+.btn-danger:active:focus {
+    background-color: #ff5a4e;
+    border-color: #ff5a4e;
+    color: #ffffff;
+}
+.btn-info {
+    background-color: #ffffff;
+    border-color: #465def;
+    color: #465def;
+}
+.btn-info.focus, 
+.btn-info:focus, 
+.btn-info:hover, 
+.btn-info:active, 
+.btn-info:active:focus {
+    background-color: #465def;
+    border-color: #465def;
+    color: #ffffff;
+}
+.btn-primary {
+    background-color: #fff200;
+    border-color: #fff200;
+    color: #000000;
+}
+.btn-primary i {
+	margin-right: 8px;
+}
+.btn-primary.focus, 
+.btn-primary:focus, 
+.btn-primary:hover, 
+.btn-primary:active, 
+.btn-primary:active:focus {
+    background-color: #000000;
+    color: #fff200;
+    border-color: #000000;
+}
+.btn-success {
+    background-color: #ffffff;
+    border-color: #39c379;
+    color: #39c379;
+}
+.btn-success i {
+	margin-right: 8px;
+}
+.btn-success.focus, 
+.btn-success:focus, 
+.btn-success:hover, 
+.btn-success:active, 
+.btn-success:active:focus {
+    background-color: #39c379;
+    color: #ffffff;
+    border-color: #39c379;
+}
+.btn-default {
+    background-color: transparent;
+    border-color: transparent;
+    color: #838eab;
+}
+.btn-default.focus, 
+.btn-default:focus, 
+.btn-default:hover, 
+.btn-default:active, 
+.btn-default:active:focus {
+    background-color: #838eab;
+    color: #ffffff;
+    border-color: #838eab;
+    box-shadow: none;
+}
+.btn-blue {
+    font-size: 12px;
+    background: #0090fa;
+    color: #ffffff;
+}
+.btn-blue.focus, 
+.btn-blue:focus, 
+.btn-blue:hover {
+    color: #ffffff;
+}

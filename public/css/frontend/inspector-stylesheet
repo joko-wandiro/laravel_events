@@ -1,0 +1,13 @@
+.order-payment-info {
+    margin-bottom: 40px;
+}
+.order-payment-info .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ed7801;
+    margin-bottom: 0px;
+}
+.order-payment-info .price {
+    font-size: 28px;
+    margin-bottom: 0px;
+}

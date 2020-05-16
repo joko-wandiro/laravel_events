@@ -1,0 +1,112 @@
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    font-family: Raleway,sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #e6edf2;
+}
+#container-panel {
+    padding: 20px;
+}
+.panel-default {
+    border-color: #000000;
+}
+.panel-default .panel-heading {
+    color: #333;
+    background-color: #fff;
+    border: none;
+    padding: 0px;
+    font-size: 32px;
+    margin: 0px 0px 40px 0px;
+}
+.panel-default .panel-heading+.panel-collapse .panel-body {
+    border-top-color: #d3e0e9;
+}
+.panel-default .panel-heading .badge {
+    color: #fff;
+    background-color: #333;
+}
+.panel-default .panel-footer+.panel-collapse .panel-body {
+    border-bottom-color: #d3e0e9;
+}
+.panel-body {
+    padding: 0px;
+}
+label.error {
+    display: block;
+    padding: 8px;
+    margin: 0px;
+    margin-top: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    font-weight: normal;
+}
+p.alert {
+    padding: 8px;
+}
+#panel-login {
+    margin-top: 80px;
+    padding: 0px;
+    border: none;
+}
+.form-horizontal .form-group.last {
+    margin-bottom: 0px;
+}
+/* Start Responsive */
+.xrow:after, .xrow:before {
+    content: " ";
+    display: table;
+}
+.xrow:after {
+    clear: both;
+}
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, 
+.col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    float: left;
+    min-height: 1px;
+    padding: 0;
+}
+.col-12 {
+    width: 100%;
+}
+.col-11 {
+    width: 91.66666666666667%;
+}
+.col-10 {
+    width: 83.33333333333333%;
+}
+.col-9 {
+    width: 75%;
+}
+.col-8 {
+    width: 66.66666666666667%;
+}
+.col-7 {
+    width: 58.33333333333333%;
+}
+.col-6 {
+    width: 50%;
+}
+.col-5 {
+    width: 41.66666666666667%;
+}
+.col-4 {
+    width: 33.33333333333333%;
+}
+.col-3 {
+    width: 25%;
+}
+.col-2 {
+    width: 16.66666666666667%;
+}
+.col-1 {
+    width: 8.333333333333333%;
+}
+/* End Responsive */

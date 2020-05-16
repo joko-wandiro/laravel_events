@@ -1,0 +1,61 @@
+body {
+    width: 57mm;
+}
+#company {
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+#order-info {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.order-table {
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+.order-table thead tr th, .order-table tbody tr td {
+    border-bottom: 1px solid #dee2e6;
+    border-top: none;
+    padding: 10px 0px;
+    vertical-align: middle;
+}
+.order-table thead tr th {
+    font-size: 8px;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0px;
+    padding-bottom: 8px;
+}
+.order-table tbody tr td {
+    font-size: 12px;
+}
+.order-table tbody tr td.description {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+.order-table tbody tr td.description .btn-delete {
+    margin-right: 4px;
+    color: #ff5a4e;
+}
+.order-table tbody tr td.qty input {
+    text-align: center;
+}
+.order-table tr td.qty {
+    text-align: center;
+}
+.order-table tr td.price {
+    text-align: right;
+}
+.order-table tfoot tr td {
+    font-size: 12px;
+    padding: 0px;
+    border: none;
+    vertical-align: middle;
+}
+.order-table tfoot tr.subtotal td {
+    padding: 20px 0px 0px 0px;
+}

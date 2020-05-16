@@ -1,0 +1,315 @@
+.dk-scaffolding {
+    background: #ffffff;
+    margin-bottom: 40px;
+}
+.dk-scaffolding-form form {
+    padding: 20px;
+    background: #ffffff;
+    border-top: 1px solid #eaeef1;
+}
+.dk-scaffolding .table-responsive {
+    box-shadow: none;
+}
+.dk-scaffolding .table {
+	margin: 0px;
+}
+.dk-scaffolding .table .dk-section-multiple-search {
+	margin-bottom: 0px;
+	padding: 0px;
+}
+.dk-scaffolding .btn-new {
+    background-color: #5d71f1;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+    padding: 0px 6px;
+    margin: 0px 0px;
+    font-size: 12px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.dk-scaffolding .btn-new.focus, 
+.dk-scaffolding .btn-new:focus, 
+.dk-scaffolding .btn-new:hover, 
+.dk-scaffolding .btn-new:active, 
+.dk-scaffolding .btn-new:active:focus {
+    background-color: #5d71f1;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+}
+.dk-scaffolding .dk-btn-create {
+	margin-bottom: 20px;
+}
+.dk-scaffolding .dk-entries-per-page {
+	text-align: right;
+}
+.dk-section-pagination {
+    text-align: right;
+}
+.dk-container-pagination-info {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+}
+.dk-container-pagination {
+    height: 48px;
+    text-align: center;
+    padding: 9px 0px;
+}
+.dk-scaffolding .pagination {
+	margin: 0px;
+	height: 30px;
+}
+.dk-scaffolding .pagination>li {
+    display: inline-block;
+}
+.dk-scaffolding .pagination-info {
+}
+.dk-scaffolding .dk-section-multiple-search .form-control {
+    border: none;
+    border-color: #eaeef1;
+    border-radius: 0px;
+    padding: 0px 12px;
+    color: #333;
+    font-weight: normal;
+    height: auto;
+    line-height: 60px;
+    box-shadow: none;
+}
+.dk-scaffolding label {
+    font-size: 12px;
+    color: #636c80;
+}
+.dk-scaffolding .form-control {
+    border: 1px solid #eaeef1;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 12px;
+    font-weight: normal;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    box-shadow: none;
+}
+.dk-scaffolding .form-control:focus {
+    /* border-color: #8f9cbc; */
+}
+.dk-scaffolding textarea.form-control {
+	height: auto;
+}
+.dk-table-row-search .form-control {
+    padding: 0px 12px;
+    height: 44px;
+    line-height: 44px;
+    border: none;
+    box-shadow: none;
+}
+.dk-scaffolding .checkbox input[type=file] {
+    display: inline-block;
+}
+.dk-scaffolding input[type=submit] {
+    margin-right: 8px;
+}
+/* Start Table */
+.dk-scaffolding table th a {
+    display: block;
+    position: relative;
+    color: #ffffff;
+}
+.dk-scaffolding .table > thead > tr > th.active {
+	background: none;
+}
+.dk-scaffolding .table > thead > tr > th a.sortable:hover, 
+.dk-scaffolding .table > thead > tr > th.active a.sortable {
+    background: #f4f7f9;
+    color: #8f9cbc;
+    text-decoration: none;
+    cursor: pointer;
+}
+.dk-scaffolding > .table > thead > tr > th {
+    padding: 0px;
+}
+.dk-scaffolding .table > thead > tr > th a, 
+.dk-scaffolding .table > thead > tr > th div {
+    background: #f4f7f9;
+    padding: 0px 8px;
+    line-height: 48px;
+    color: #8f9cbc;
+    font-size: 12px;
+    font-weight: normal;
+}
+.dk-scaffolding .table > thead > tr.dk-table-row-search > th {
+    padding: 0px;
+}
+.dk-scaffolding .table > thead > tr > th a:hover, 
+.dk-scaffolding .table > thead > tr > th a:focus {
+    text-decoration: none;
+    cursor: default;
+}
+.dk-scaffolding table th > a.sortable:after {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #8f9cbc;
+}
+.dk-scaffolding .table > thead > tr > th a.sortable:hover:after, 
+.dk-scaffolding table th.active > a.sortable:after {
+	color: #8f9cbc;
+}
+.dk-scaffolding table th.headerSortUp > a.sortable:after {
+    content: "\f15d";
+}
+.dk-scaffolding table th.headerSortDown > a.sortable:after {
+	content: "\f15e";
+}
+.dk-scaffolding .table>tbody>tr>td, 
+.dk-scaffolding .table>tbody>tr>th, 
+.dk-scaffolding .table>tfoot>tr>td, 
+.dk-scaffolding .table>tfoot>tr>th, 
+.dk-scaffolding .table>thead>tr>td, 
+.dk-scaffolding .table>thead>tr>th,
+.dk-scaffolding .table>thead:first-child>tr:first-child>th {
+	background-color: #ffffff;
+	border-top: 1px solid #eaeef1;
+	border-bottom: 1px solid #eaeef1;
+}
+.dk-scaffolding > .table>thead>tr>th {
+    border: none;
+}
+.dk-scaffolding .table-hover>tbody>tr:hover {
+    /* background-color: #ffffff; */
+}
+.dk-scaffolding .table tr {
+	/* border-bottom: 1px solid #eaeef1; */
+}
+.dk-scaffolding .table>tbody>tr>td, .dk-scaffolding .table>tfoot>tr>td {
+	font-size: 12px;
+	color: #3a4257;
+	padding: 8px;
+	height: 32px;
+	vertical-align: middle;
+	border-top: 1px solid #eaeef1;
+	border-bottom: 1px solid #eaeef1;
+}
+.dk-scaffolding .table>tfoot>tr>td {
+    color: #636c80;
+    background: #f4f7f9;
+    font-weight: bold;
+}
+/* End Table */
+.dk-scaffolding label.error {
+    display: block;
+    line-height: 32px;
+    padding: 0px 14px;
+    margin: 0px;
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    font-weight: normal;
+}
+/* Start Page Header */
+.dk-scaffolding .page-header {
+    margin: 0px;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    margin-bottom: 20px;
+}
+.dk-scaffolding .page-header h1 {
+    margin: 0px;
+    font-size: 18px;
+}
+/* End Page Header */
+.dk-scaffolding .dk-entries-per-page select.form-control {
+    display: inline;
+    width: auto;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 14px;
+}
+/* Start Pagination */
+.dk-scaffolding .pagination>.disabled>a, 
+.dk-scaffolding .pagination>.disabled>a:focus, 
+.dk-scaffolding .pagination>.disabled>a:hover, 
+.dk-scaffolding .pagination>.disabled>span, 
+.dk-scaffolding .pagination>.disabled>span:focus, 
+.dk-scaffolding .pagination>.disabled>span:hover {
+    color: #636c80;
+    cursor: not-allowed;
+    background-color: #ffffff;
+    border: none;
+}
+.dk-scaffolding .pagination>li>a, 
+.dk-scaffolding .pagination>li>span {
+    background: transparent;
+    color: #636c80;
+    border: none;
+    border-radius: 4px;
+    padding: 0px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.dk-scaffolding .pagination>li>a:focus, 
+.dk-scaffolding .pagination>li>a:hover, 
+.dk-scaffolding .pagination>li>span:focus, 
+.dk-scaffolding .pagination>li>span:hover {
+    color: #636c80;
+    background-color: #ffffff;
+    border: none;
+}
+.dk-scaffolding .pagination>.active>a, 
+.dk-scaffolding .pagination>.active>a:focus, 
+.dk-scaffolding .pagination>.active>a:hover, 
+.dk-scaffolding .pagination>.active>span, 
+.dk-scaffolding .pagination>.active>span:focus, 
+.dk-scaffolding .pagination>.active>span:hover {
+    color: #636c80;
+    background-color: #ffffff;
+    border: none;
+}
+/* End Pagination */
+/* Start View Page */
+.form-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+.form-content {
+    color: #333;
+    line-height: 34px;
+    border: 1px solid #d4dfe5;
+    border-radius: 0px;
+    padding: 0px 12px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+/* End View Page */
+.dk-scaffolding span.required {
+    color: red;
+}
+.dk-scaffolding .dk-section-form-elements {
+    /* background: #f6f9fc; */
+    /* padding: 20px; */
+    /* box-shadow: 0px 0px 10px rgba(0,0,0,0.1); */
+}
+@media (max-width: 768px) {
+	.dk-scaffolding .dk-section-form-buttons {
+		margin-top: 20px;
+	}
+	.dk-scaffolding .dk-entries-per-page, 
+	.dk-scaffolding .dk-container-pagination-info {
+		margin-bottom: 10px;
+	}
+	.dk-scaffolding .dk-container-pagination {
+	    text-align: left;
+	}
+}
