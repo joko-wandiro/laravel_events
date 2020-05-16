@@ -2,18 +2,14 @@
 
 return [
     // Start Menu
+    'app' => 'Aplikasi Event',
     'tags' => 'Tag',
     'organizers' => 'Penyelenggara',
     'events' => 'Event',
     'users' => 'Pengguna',
-    'customers' => 'Pelanggan',
     'settings' => 'Pengaturan',
-    'reports' => 'Laporan',
-    'daily' => 'Harian',
-    'monthly' => 'Bulanan',
     'list' => 'Daftar',
     'create' => 'Tambah',
-    'order' => 'Pesan',
     'account' => 'Akun',
     'edit' => 'Rubah',
     'view' => 'Lihat',
@@ -46,18 +42,4 @@ return [
     'yes' => 'Ya',
     // Input
     'select.default' => "-- Pilih --",
-    // Aplikasi
-    'app' => 'Aplikasi Kasir',
-    'sales' => 'penjualan',
-    'subtotal' => 'Subtotal',
-    'delivery.fee' => 'Biaya Pengiriman',
-    'tax' => 'Pajak',
-    'total' => 'Total',
-    'cash' => 'Tunai',
-    'change' => 'Kembalian',
-    'sales_no' => 'No. Pesanan',
-    'date' => 'Tanggal',
-    'cashier' => 'Kasir',
-    'btn.cancel' => 'Batal',
-    'btn.pay' => 'Bayar',
 ];

@@ -1,24 +1,20 @@
 <?php
 
 return [
-    // Start Menu
-    'categories' => 'Categories',
-    'products' => 'Products',
-    'orders' => 'Orders',
+    // Aplikasi
+    'app' => 'Aplikasi Event',
+    'tags' => 'Tags',
+    'organizers' => 'Organizers',
+    'events' => 'Events',
     'users' => 'Users',
     'settings' => 'Settings',
-    'reports' => 'Reports',
-    'daily' => 'Daily',
-    'monthly' => 'Monthly',
     'list' => 'List',
     'create' => 'Create',
-    'pos' => 'POS',
     'account' => 'Account',
     'edit' => 'Edit',
     'view' => 'View',
     'remove' => 'Remove',
     'logout' => 'Logout',
-    'organizer' => 'Organizer',
     // Days
     'sunday' => 'sunday',
     'monday' => 'monday',
@@ -46,17 +42,4 @@ return [
     'yes' => 'Yes',
     // Input
     'select.default' => "-- Select --",
-    // Aplikasi
-    'app' => 'Event Application',
-    'events' => 'Events',
-    'organizers' => 'Organizers',
-    'tax' => 'Tax',
-    'total' => 'Total',
-    'cash' => 'Cash',
-    'change' => 'Change',
-    'sales_no' => 'Sales No',
-    'date' => 'Date',
-    'cashier' => 'Cashier',
-    'btn.cancel' => 'Cancel',
-    'btn.pay' => 'Pay',
 ];
