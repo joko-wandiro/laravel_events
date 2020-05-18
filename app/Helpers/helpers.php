@@ -77,6 +77,17 @@ if (!function_exists('eventsImageUrl')) {
 
 }
 
+if (!function_exists('image_url_medium')) {
+
+    function image_url_medium($filename = null)
+    {
+        $pathinfos = pathinfo($filename);
+        $filename = $pathinfos['filename'] . '_medium.' . $pathinfos['extension'];
+        return url('uploads/' . $filename);
+    }
+
+}
+
 if (!function_exists('eventsImagePath')) {
 
     function eventsImagePath($filename = null)

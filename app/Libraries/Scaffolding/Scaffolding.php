@@ -15,6 +15,7 @@ class Scaffolding
 {
 
     protected $type = null;
+    protected $contentType = 'html';
     protected $Route;
     protected $actionName;
     protected $Request;
@@ -175,6 +176,7 @@ class Scaffolding
         'pagination_info' => true,
         'pagination' => true,
     );
+    protected $isPaging = true;
 
     /**
      * Constructor
@@ -231,6 +233,27 @@ class Scaffolding
     public function setTemplate($template)
     {
         $this->template = $template;
+    }
+
+    /**
+     * Get is paging
+     *
+     * @return string
+     */
+    public function getIsPaging()
+    {
+        return $this->isPaging;
+    }
+
+    /**
+     * Set is paging
+     * 
+     * @param boolean $status
+     */
+    public function setIsPaging($status)
+    {
+        $this->isPaging = $status;
+        return $this;
     }
 
     /**
@@ -374,6 +397,17 @@ class Scaffolding
     public function setType($value)
     {
         $this->type = ( $value == "resource" ) ? $value : null;
+    }
+
+    /**
+     * Set content type
+     *
+     * @param Illuminate\Database\Eloquent\Model $Model
+     */
+    public function setContentType($value)
+    {
+        $this->contentType = $value;
+        return $this;
     }
 
     /**
@@ -950,7 +984,7 @@ class Scaffolding
      */
     public function isIdentifierValid()
     {
-        return ($this->Request['identifier'] == $this->identifier) ? true : false;
+        return (request('identifier') == $this->identifier) ? true : false;
     }
 
     /**
@@ -1370,6 +1404,15 @@ class Scaffolding
         if ($result instanceof \Illuminate\Http\RedirectResponse) {
             $this->redirect($result);
         }
+        if ($this->contentType == "json") {
+            $record = $this->Model->toArray();
+            // Hook Filter viewModifyRecord
+            $record = $this->doFilter("viewModifyRecord", $record);
+            // Send Response
+            $JsonResponse = new JsonResponse($record, 200);
+            $JsonResponse->send();
+            exit;
+        }
         // Render View
         $parameters = array(
             "Scaffolding" => $this,
@@ -1423,13 +1466,16 @@ class Scaffolding
     {
         // Get specific record
         $requestParameters = $this->Request->all();
-//        dd($requestParameters);
         $Model = clone $this->Model;
+        if (request('action') == "view") {
+            // Hook Filter viewModifyRecord
+            $Model = $this->doFilter("viewPrepareRecord", $Model);
+        } else {
+            $Model = $this->doFilter("prepareRecord", $Model);
+        }
         foreach ($requestParameters['indexes'] as $column => $value) {
             $Model = $Model->where($column, '=', $value);
         }
-        $Model = $this->doFilter("prepareRecord", $Model);
-//        dd($Model->toSql());
         $record = $Model->first();
         // Is valid record
         if (!$record) {
@@ -1574,7 +1620,6 @@ class Scaffolding
         }
         // Record is valid
         $Model = $this->isValidRecord();
-//        dd($Model->setTable('events'));
         if ($Model instanceof \Illuminate\Http\RedirectResponse) {
             $this->redirect($Model);
         }
@@ -1621,12 +1666,17 @@ class Scaffolding
         $validationMessages = array();
         // Hook Filter insertModifyValidationMessages
         $validationMessages = $this->doFilter("insertModifyValidationMessages", $validationMessages);
-//        var_export($validationRules);
-//        exit;
         $validator = Validator::make($this->Request->all(), $validationRules, $validationMessages);
         if ($validator->fails()) {
-            $Response = back()->withErrors($validator)->withInput();
-            $this->redirect($Response);
+            if ($this->Request->ajax()) {
+                // Send Response
+                $JsonResponse = new JsonResponse($validator->errors(), 400);
+                $JsonResponse->send();
+                exit;
+            } else {
+                $Response = back()->withErrors($validator)->withInput();
+                $this->redirect($Response);
+            }
         }
         // Set value for BIT columns
         $this->setValueBitColumns();
@@ -1647,12 +1697,20 @@ class Scaffolding
             // Hook Action insertAfterInsert
             $this->doHooks("insertAfterInsert", array($this->Model));
         }
-        // Set response redirect to list page and set session flash
-        $Response = redirect($this->getFormAction())
-                ->with('dk_' . $this->getIdentifier() . '_info_success', trans('dkscaffolding.notification.insert.success'));
-        // Hook Filter insertModifyResponse
-        $Response = $this->doFilter("insertModifyResponse", $Response);
-        $this->redirect($Response);
+        if ($this->Request->ajax()) {
+            // Send Response
+            $JsonResponse = new JsonResponse(trans('dkscaffolding.notification.insert.success'), 200);
+            $JsonResponse = $this->doFilter("insertModifyResponse", $JsonResponse);
+            $JsonResponse->send();
+            exit;
+        } else {
+            // Set response redirect to list page and set session flash
+            $Response = redirect($this->getFormAction())
+                    ->with('dk_' . $this->getIdentifier() . '_info_success', trans('dkscaffolding.notification.insert.success'));
+            // Hook Filter insertModifyResponse
+            $Response = $this->doFilter("insertModifyResponse", $Response);
+            $this->redirect($Response);
+        }
     }
 
     /**
@@ -1677,6 +1735,7 @@ class Scaffolding
      */
     public function render()
     {
+        $this->Request = clone request();
         $Request = $this->Request;
         $httpVerb = $Request->getMethod();
         // Is List Page
@@ -1763,7 +1822,12 @@ class Scaffolding
                 $value = $searchParameters['multiple'];
                 // Filter multiple column
                 foreach ($columns as $column) {
-                    $Model = $Model->orHaving($column, 'LIKE', '%' . $value . '%');
+                    // Is alias column
+                    if (array_key_exists($column, $this->aliases)) {
+                        $Model = $Model->orHaving($column, 'LIKE', '%' . $value . '%');
+                    } else {
+                        $Model = $Model->orWhere($column, 'LIKE', '%' . $value . '%');
+                    }
                 }
             }
             unset($searchParameters['multiple']);
@@ -1799,7 +1863,8 @@ class Scaffolding
         $status = true;
         while ($status) {
             // Get records
-            $this->records = $Model->paginate($this->getRecordsPerPage(), array('*'), 'page', $this->page);
+            $records_per_page = ( $this->isPaging ) ? $this->getRecordsPerPage() : "all";
+            $this->records = $Model->paginate($records_per_page, array('*'), 'page', $this->page);
             $requestParameters = $this->addingExtraParameters($Request->except('page'));
             $this->records->appends($requestParameters);
             // Page is valid
@@ -1846,11 +1911,12 @@ class Scaffolding
         $parameters = array(
             "Scaffolding" => $this,
         );
-        if ($this->Request->ajax()) {
+        if ($this->Request->ajax() || $this->contentType == "json") {
             $records = $this->getListRecords();
             if (!$records) {
                 $records = trans('dkscaffolding.no.item');
             }
+            $records = $this->doFilter("listModifyRecord", $records);
             // Populate parameters
             $response = array(
                 'records' => $records,
@@ -1858,6 +1924,8 @@ class Scaffolding
                 'paginationInfo' => $this->getPaginationInfo(),
                 'orders' => $this->getColumnsOrder(),
                 'columnProperties' => $this->getColumnProperties(),
+                'total_page' => $lastPage,
+                'current_page' => $currentPage,
 //                'queries' => DB::getQueryLog(),
             );
             // Send Response
@@ -1865,6 +1933,7 @@ class Scaffolding
             $JsonResponse->send();
             exit;
         } else {
+            $records = $this->doFilter("listModifyRecord", $records);
             // Render template file ( table support search, order and pagination )
             $content = view($this->template . ".index", $parameters)->render();
             return $content;
@@ -1962,7 +2031,6 @@ class Scaffolding
                 $result[$column] = e("&nbsp;");
             } else {
                 $value = isset($this->Request['search'][$column]) ? $this->Request['search'][$column] : null;
-
                 $result[$column] = Form::text(
                                 'search[' . $column . ']', $value, array('class' => 'form-control', 'placeholder' => trans('dkscaffolding.search.placeholder'))
                 );

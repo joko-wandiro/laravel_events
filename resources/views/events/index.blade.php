@@ -33,7 +33,7 @@ $records = $Scaffolding->getListRecords();
                             ?>
                             <h3 class="event-title"><a href="<?php echo url(to_url_component($record['events.title'])); ?>"><?php echo $record['events.title']; ?></a></h3>
                             <div class="event-content">
-                                <div><?php echo get_date_indonesian_format($record['events.start_date']) . " - " . get_date_indonesian_format($record['events.start_date']); ?></div>
+                                <div><?php echo get_date_indonesian_format($record['events.start_date']) . " - " . get_date_indonesian_format($record['events.end_date']); ?></div>
                                 <div><?php echo get_time_indonesian_format($record['events.start_time']) . " - " . get_time_indonesian_format($record['events.end_time']); ?></div>
                             </div>
 
