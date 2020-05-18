@@ -1933,7 +1933,6 @@ class Scaffolding
             $JsonResponse->send();
             exit;
         } else {
-            $records = $this->doFilter("listModifyRecord", $records);
             // Render template file ( table support search, order and pagination )
             $content = view($this->template . ".index", $parameters)->render();
             return $content;

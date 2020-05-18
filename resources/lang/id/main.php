@@ -4,6 +4,7 @@ return [
     // Start Menu
     'app' => 'Aplikasi Event',
     'tags' => 'Tag',
+    'organizer' => 'Penyelenggara',
     'organizers' => 'Penyelenggara',
     'events' => 'Event',
     'users' => 'Pengguna',

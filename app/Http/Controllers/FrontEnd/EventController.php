@@ -36,7 +36,7 @@ class EventController extends FrontEndController
         ));
         // Scaffolding
         $Scaffolding = new Scaffolding("events");
-        $Scaffolding->addHooks("prepareRecord", array($this, "prepareRecord"));
+        $Scaffolding->addHooks("viewPrepareRecord", array($this, "viewPrepareRecord"));
         $Scaffolding->setTemplate("events");
         $content = $Scaffolding->render();
         $parameters = $this->getParameters();
@@ -53,7 +53,7 @@ class EventController extends FrontEndController
      * 
      * @return  string
      */
-    public function prepareRecord($Model)
+    public function viewPrepareRecord($Model)
     {
         $columns = array('events.*', 'organizers.name');
         return $Model->select($columns)->join('organizers', 'organizers.id', '=', 'events.id_organizer', 'INNER');
